@@ -269,6 +269,26 @@
                         <td>@lang('lang_v1.product_locations_ins')
                         </td>
                     </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>@lang('lang_v1.date_manufacture') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.date_manufacture_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>38</td>
+                        <td>@lang('lang_v1.country_origin') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.country_origin_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>39</td>
+                        <td>@lang('lang_v1.package_predefined') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.package_predefined_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>40</td>
+                        <td>@lang('lang_v1.plumb') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.plumb')</td>
+                    </tr>
 
                 </table>
             @endcomponent

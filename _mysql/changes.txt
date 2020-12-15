@@ -1,0 +1,8 @@
+15/11/2020
+
+ALTER TABLE `products` ADD `date_fabrication` VARCHAR(50) NULL AFTER `not_for_selling`;
+ALTER TABLE `products` ADD `country_origin` VARCHAR(255) NULL AFTER `date_fabrication`;
+ALTER TABLE `products` ADD `package_predefined` VARCHAR(255) NULL AFTER `country_origin`;
+ALTER TABLE `products` ADD `quantity_order_minimum` VARCHAR(255) NULL AFTER `package_predefined`;
+ALTER TABLE `products` ADD `plumb` VARCHAR(255) NULL AFTER `quantity_order_minimum`;
+ALTER TABLE `products` ADD `contact_supplier_id` INT(10) UNSIGNED NULL DEFAULT NULL; AFTER `sub_category_id`;

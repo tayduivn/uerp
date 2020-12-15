@@ -1149,5 +1149,16 @@ return [
     'due_date' => 'Due Date',
     'quotation_no' => 'Quotation number',
     'browser_based_printing' => 'Browser Based Printing',
-    'configured_printer' => 'Use Configured Receipt Printer'
+    'configured_printer' => 'Use Configured Receipt Printer',
+    'date_manufacture' => 'Date of manufacture',
+    'date_manufacture_ins' => 'Date of manufacture',
+    'date_manufacture' => 'Date of manufacture',
+    'date_manufacture_ins' => 'Date of manufacture',
+    'country_origin' => 'Country of origin',
+    'country_origin_ins' => 'Country of origin',
+    'package_predefined' => 'Package predefined',
+    'package_predefined_ins' => 'Package predefined',
+    'plumb' => 'Plumb',
+    'plumb_ins' => 'Plumb',
+
 ];

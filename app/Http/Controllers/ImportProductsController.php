@@ -123,7 +123,7 @@ class ImportProductsController extends Controller
                 foreach ($imported_data as $key => $value) {
 
                     //Check if any column is missing
-                    if (count($value) < 36) {
+                    if (count($value) < 37) {
                         $is_valid =  false;
                         $error_msg = "Some of the columns are missing. Please, use latest CSV file template.";
                         break;
@@ -174,6 +174,26 @@ class ImportProductsController extends Controller
                         $product_array['product_custom_field4'] = trim($value[33]);
                     } else {
                         $product_array['product_custom_field4'] = '';
+                    }
+                    if (isset($value[36])) {
+                        $product_array['date_manufacture'] = trim($value[36]);
+                    } else {
+                        $product_array['date_manufacture'] = '';
+                    }
+                    if (isset($value[37])) {
+                        $product_array['country_origin'] = trim($value[37]);
+                    } else {
+                        $product_array['country_origin'] = '';
+                    }
+                    if (isset($value[38])) {
+                        $product_array['package_predefined'] = trim($value[38]);
+                    } else {
+                        $product_array['package_predefined'] = '';
+                    }
+                    if (isset($value[39])) {
+                        $product_array['plumb'] = trim($value[39]);
+                    } else {
+                        $product_array['plumb'] = '';
                     }
 
                     //Add not for selling
