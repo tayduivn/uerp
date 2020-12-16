@@ -284,10 +284,40 @@
                         <td>@lang('lang_v1.package_predefined') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
                         <td>@lang('lang_v1.package_predefined_ins')</td>
                     </tr>
-                   <tr>
+                    <tr>
                         <td>40</td>
+                        <td>@lang('lang_v1.quantity_order_minimum') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.quantity_order_minimum_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>41</td>
                         <td>@lang('lang_v1.plumb') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
-                        <td>@lang('lang_v1.plumb')</td>
+                        <td>@lang('lang_v1.plumb_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>42</td>
+                        <td>@lang('lang_v1.sale_price') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.sale_price_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>43</td>
+                        <td>@lang('lang_v1.description2') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.description2_ins')</td>
+                    </tr>
+                  <tr>
+                        <td>44</td>
+                        <td>@lang('lang_v1.description3') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.description3_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>45</td>
+                        <td>@lang('lang_v1.contact_supplier_id') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.contact_supplier_id_ins')</td>
+                    </tr>
+                   <tr>
+                        <td>46</td>
+                        <td>@lang('lang_v1.contact_supplier_name') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.contact_supplier_name_ins')</td>
                     </tr>
 
                 </table>
