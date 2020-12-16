@@ -17,6 +17,7 @@ use App\VariationValueTemplate;
 use DB;
 use Excel;
 use Illuminate\Http\Request;
+use App\Contacts;
 
 class ImportProductsController extends Controller
 {
@@ -191,9 +192,42 @@ class ImportProductsController extends Controller
                         $product_array['package_predefined'] = '';
                     }
                     if (isset($value[39])) {
-                        $product_array['plumb'] = trim($value[39]);
+                        $product_array['quantity_order_minimum'] = trim($value[39]);
+                    } else {
+                        $product_array['quantity_order_minimum'] = '';
+                    }
+                    if (isset($value[40])) {
+                        $product_array['plumb'] = trim($value[40]);
                     } else {
                         $product_array['plumb'] = '';
+                    }
+                    if (isset($value[41])) {
+                        $product_array['sale_price'] = trim($value[41]);
+                    } else {
+                        $product_array['sale_price'] = '';
+                    }
+                    if (isset($value[42])) {
+                        $product_array['description2'] = trim($value[42]);
+                    } else {
+                        $product_array['description2'] = '';
+                    }
+                    if (isset($value[43])) {
+                        $product_array['description3'] = trim($value[43]);
+                    } else {
+                        $product_array['description3'] = '';
+                    }
+
+                    //Add supplier
+                    //Check if supplier exists else create new
+                    $supplier_id = isset($value[44]) ? trim($value[44]) : '';
+                    $supplier_name = isset($value[45]) ? trim($value[45]) : '';
+                   
+                    if (!empty($supplier_name)) {
+                        $contact = Contacts::firstOrCreate(
+                            ['business_id' => 1, 'type' => 'supplier', 'name' => $supplier_name, 'supplier_business_name' => $supplier_name, 'contact_id' => $supplier_id],
+                            ['created_by' => $user_id]
+                        );
+                        $product_array['contact_supplier_id'] = $contact->id;
                     }
 
                     //Add not for selling
