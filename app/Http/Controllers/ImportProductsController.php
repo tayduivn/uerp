@@ -221,7 +221,7 @@ class ImportProductsController extends Controller
                     //Check if supplier exists else create new
                     $supplier_id = isset($value[44]) ? trim($value[44]) : '';
                     $supplier_name = isset($value[45]) ? trim($value[45]) : '';
-                   
+
                     if (!empty($supplier_name)) {
                         $contact = Contacts::firstOrCreate(
                             ['business_id' => 1, 'type' => 'supplier', 'name' => $supplier_name, 'supplier_business_name' => $supplier_name, 'contact_id' => $supplier_id],
@@ -634,6 +634,7 @@ class ImportProductsController extends Controller
                 }
 
                 if (!$is_valid) {
+                    echo "Exception ici";
                     throw new \Exception($error_msg);
                 }
 
