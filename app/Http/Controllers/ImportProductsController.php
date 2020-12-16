@@ -411,6 +411,10 @@ class ImportProductsController extends Controller
                         }
                         $product_array['variation']['profit_percent'] = $profit_margin;
 
+                        // convert for sure
+                        $value[16] = (float)$value[16];
+                        $value[17] = (float)$value[17];
+
                         //Calculate purchase price
                         $dpp_inc_tax = trim($value[16]);
                         $dpp_exc_tax = trim($value[17]);

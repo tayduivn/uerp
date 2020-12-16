@@ -106,7 +106,7 @@ class Util
      */
     public function calc_percentage_base($number, $percent)
     {
-        return ($number * 100) / (100 + $percent);
+        return ((float)$number * 100) / (100 + $percent);
     }
 
     /**
