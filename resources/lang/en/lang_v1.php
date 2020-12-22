@@ -1182,6 +1182,10 @@ return [
     'datasheet_ins' => 'Datasheet',
     'category_id' => 'Category ID',
     'category_id_ins' => 'Category ID',
+    'reference' => 'Reference',
+    'reference_ins' => 'Reference',
+    'reference_search' => 'Reference search',
+    'reference_search_ins' => 'Reference search',
 
 
 ];

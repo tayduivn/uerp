@@ -236,6 +236,16 @@ class ImportProductsController extends Controller
                     } else {
                         $product_array['datasheet'] = '';
                     }
+                  if (isset($value[51])) {
+                        $product_array['reference'] = trim($value[51]);
+                    } else {
+                        $product_array['reference'] = '';
+                    }
+                  if (isset($value[52])) {
+                        $product_array['reference_search'] = trim($value[52]);
+                    } else {
+                        $product_array['reference_search'] = '';
+                    }
 
                     //Add supplier
                     //Check if supplier exists else create new

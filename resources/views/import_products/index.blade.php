@@ -344,6 +344,16 @@
                         <td>@lang('lang_v1.category_id') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
                         <td>@lang('lang_v1.category_id_ins')</td>
                     </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>@lang('lang_v1.reference') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.reference_ins')</td>
+                    </tr>
+                    <tr>
+                        <td>53</td>
+                        <td>@lang('lang_v1.reference_search') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.reference_search_ins')</td>
+                    </tr>
 
                 </table>
             @endcomponent
