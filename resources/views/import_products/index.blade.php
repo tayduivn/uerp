@@ -319,6 +319,31 @@
                         <td>@lang('lang_v1.contact_supplier_name') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
                         <td>@lang('lang_v1.contact_supplier_name_ins')</td>
                     </tr>
+                  <tr>
+                        <td>47</td>
+                        <td>@lang('lang_v1.website_price') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.website_price_ins')</td>
+                    </tr>
+                  <tr>
+                        <td>48</td>
+                        <td>@lang('lang_v1.reference_internal') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.reference_internal_ins')</td>
+                    </tr>
+                  <tr>
+                        <td>49</td>
+                        <td>@lang('lang_v1.location_in_stock') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.location_in_stock_ins')</td>
+                    </tr>
+                  <tr>
+                        <td>50</td>
+                        <td>@lang('lang_v1.datasheet') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.datasheet_ins')</td>
+                    </tr>
+                  <tr>
+                        <td>51</td>
+                        <td>@lang('lang_v1.category_id') <small class="text-muted">(@lang('lang_v1.optional'))</small></td>
+                        <td>@lang('lang_v1.category_id_ins')</td>
+                    </tr>
 
                 </table>
             @endcomponent

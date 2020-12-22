@@ -1172,5 +1172,16 @@ return [
     'contact_supplier_id_ins' => 'Supplier ID',
     'contact_supplier_name' => 'Supplier name',
     'contact_supplier_name_ins' => 'Supplier name',
+    'website_price' => 'Website price',
+    'website_price_ins' => 'Website price',
+    'reference_internal' => 'Reference internal',
+    'reference_internal_ins' => 'Reference internal',
+    'location_in_stock' => 'Location in stock',
+    'location_in_stock_ins' => 'Location in stock',
+    'datasheet' => 'Datasheet',
+    'datasheet_ins' => 'Datasheet',
+    'category_id' => 'Category ID',
+    'category_id_ins' => 'Category ID',
+
 
 ];

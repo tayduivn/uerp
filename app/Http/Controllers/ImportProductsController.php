@@ -216,6 +216,26 @@ class ImportProductsController extends Controller
                     } else {
                         $product_array['description3'] = '';
                     }
+                   if (isset($value[46])) {
+                        $product_array['website_price'] = trim($value[46]);
+                    } else {
+                        $product_array['website_price'] = '';
+                    }
+                   if (isset($value[47])) {
+                        $product_array['reference_internal'] = trim($value[47]);
+                    } else {
+                        $product_array['reference_internal'] = '';
+                    }
+                   if (isset($value[48])) {
+                        $product_array['location_in_stock'] = trim($value[48]);
+                    } else {
+                        $product_array['location_in_stock'] = '';
+                    }
+                   if (isset($value[49])) {
+                        $product_array['datasheet'] = trim($value[49]);
+                    } else {
+                        $product_array['datasheet'] = '';
+                    }
 
                     //Add supplier
                     //Check if supplier exists else create new
@@ -229,6 +249,20 @@ class ImportProductsController extends Controller
                         );
                         $product_array['contact_supplier_id'] = $contact->id;
                     }
+
+                    //Category
+                    $category_id = isset($value[50]) ? trim($value[50]) : '';
+
+                    // attention mettre dans la table categories deleted_at NULL
+                    if (!empty($category_id)) {
+
+                        $category_obj = Category::where(
+                            "id", $category_id
+                        )->first();
+
+                        $product_array['category_id'] = $category_obj->id;
+                    }
+
 
                     //Add not for selling
                     $product_array['not_for_selling'] = !empty($value[34]) && $value[34] == 1 ? 1 : 0;

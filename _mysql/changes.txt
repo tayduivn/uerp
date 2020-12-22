@@ -14,3 +14,11 @@ ALTER TABLE `products` ADD `description3` TEXT NULL AFTER `description3`;
 ALTER TABLE `products` ADD `lot_number_manufacture` VARCHAR(255) NULL AFTER `description3`;
 ALTER TABLE `products` ADD `moisture_sensitivity_level` VARCHAR(255) NULL AFTER `lot_number_manufacture`;
 ALTER TABLE `products` ADD `composition_foot_component` VARCHAR(255) NULL AFTER `moisture_sensitivity_level`;
+
+22/11
+ALTER TABLE `products` ADD `website_price` VARCHAR(255) NULL AFTER `composition_foot_component`;
+ALTER TABLE `products` ADD `reference_internal` VARCHAR(255) NULL AFTER `website_price`;
+ALTER TABLE `products` ADD `location_in_stock` VARCHAR(255) NULL AFTER `reference_internal`;
+ALTER TABLE `products` ADD `datasheet` VARCHAR(255) NULL AFTER `location_in_stock`;
+
+in categories deleted_at NULL 
