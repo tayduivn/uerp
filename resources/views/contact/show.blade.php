@@ -297,6 +297,7 @@ $(document).ready( function(){
     rp_log_table = $('#rp_log_table').DataTable({
         processing: true,
         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
         aaSorting: [[0, 'desc']],
         ajax: '/sells?customer_id={{ $contact->id }}&rewards_only=true',
         columns: [
@@ -310,6 +311,7 @@ $(document).ready( function(){
     supplier_stock_report_table = $('#supplier_stock_report_table').DataTable({
         processing: true,
         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
         'ajax': {
             url: "{{action('ContactController@getSupplierStockReport', [$contact->id])}}",
             data: function (d) {

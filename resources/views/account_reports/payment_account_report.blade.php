@@ -88,6 +88,7 @@
             payment_account_report = $('#payment_account_report').DataTable({
                             processing: true,
                             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                             "ajax": {
                                 "url": "{{action('AccountReportsController@paymentAccountReport')}}",
                                 "data": function ( d ) {

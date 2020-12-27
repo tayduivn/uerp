@@ -121,6 +121,7 @@
         account_book = $('#account_book').DataTable({
                             processing: true,
                             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                             ajax: {
                                 url: '{{action("AccountController@show",[$account->id])}}',
                                 data: function(d) {

@@ -243,6 +243,7 @@
         input_tax_table = $('#input_tax_table').DataTable({
             processing: true,
             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
             ajax: {
                 url: '/reports/tax-details',
                 data: function(d) {
@@ -288,6 +289,7 @@
                     output_tax_datatable = $('#output_tax_table').DataTable({
                         processing: true,
                         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                         aaSorting: [[0, 'desc']],
                         ajax: {
                             url: '/reports/tax-details',
@@ -333,6 +335,7 @@
                     expense_tax_datatable = $('#expense_tax_table').DataTable({
                         processing: true,
                         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                         ajax: {
                             url: '/reports/tax-details',
                             data: function(d) {

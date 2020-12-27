@@ -235,6 +235,7 @@
             todays_bookings_table = $('#todays_bookings_table').DataTable({
                             processing: true,
                             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                             "ordering": false,
                             'searching': false,
                             "pageLength": 10,

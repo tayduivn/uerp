@@ -47,6 +47,7 @@
         var barcode_table = $('#barcode_table').DataTable({
             processing: true,
             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
             buttons:[],
             ajax: '/barcodes',
             bPaginate: false,

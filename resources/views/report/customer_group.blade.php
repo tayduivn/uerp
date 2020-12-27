@@ -83,6 +83,7 @@
             cg_report_table = $('#cg_report_table').DataTable({
                             processing: true,
                             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                             "ajax": {
                                 "url": "/reports/customer-group",
                                 "data": function ( d ) {

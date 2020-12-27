@@ -98,6 +98,7 @@
         cash_flow_table = $('#cash_flow_table').DataTable({
             processing: true,
             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
             "ajax": {
                     "url": "{{action("AccountController@cashFlow")}}",
                     "data": function ( d ) {

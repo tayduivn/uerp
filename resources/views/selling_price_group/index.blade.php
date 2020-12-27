@@ -96,6 +96,7 @@
         var selling_price_group_table = $('#selling_price_group_table').DataTable({
                         processing: true,
                         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                         ajax: '/selling-price-group',
                         columnDefs: [ {
                             "targets": 2,

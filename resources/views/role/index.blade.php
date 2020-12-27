@@ -48,6 +48,7 @@
         var roles_table = $('#roles_table').DataTable({
                     processing: true,
                     serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                     ajax: '/roles',
                     buttons:[],
                     columnDefs: [ {

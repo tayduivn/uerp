@@ -50,6 +50,7 @@
         var printer_table = $('#printer_table').DataTable({
             processing: true,
             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
             buttons:[],
             ajax: '/printers',
             bPaginate: false,

@@ -43,6 +43,7 @@
         var warranty_table = $('#warranty_table').DataTable({
                 processing: true,
                 serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                 ajax: "{{action('WarrantyController@index')}}",
                 columnDefs: [ {
                     "targets": 3,

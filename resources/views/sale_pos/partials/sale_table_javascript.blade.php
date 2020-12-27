@@ -21,6 +21,7 @@ $(document).on('change', '#sell_list_filter_location_id, #sell_list_filter_custo
 sell_table = $('#sell_table').DataTable({
         processing: true,
         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
         aaSorting: [[1, 'desc']],
         "ajax": {
             "url": "/sells",

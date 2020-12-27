@@ -71,6 +71,7 @@
         purchase_return_table = $('#purchase_return_datatable').DataTable({
             processing: true,
             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
             aaSorting: [[0, 'desc']],
             ajax: {
             url: '/purchase-return',

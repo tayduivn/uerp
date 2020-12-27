@@ -87,6 +87,7 @@
             var modifier_table = $('#modifier_table').DataTable({
                     processing: true,
                     serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                     ajax: '/modules/modifiers',
                     columnDefs: [ {
                         "targets": [1,2, 3],

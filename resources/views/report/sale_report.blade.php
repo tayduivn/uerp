@@ -60,6 +60,7 @@
         sale_report_table = $('#sale_report_table').DataTable({
             processing: true,
             serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
             aaSorting: [[1, 'desc']],
             "ajax": {
                 "url": "/sells",

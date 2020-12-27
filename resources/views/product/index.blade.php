@@ -89,7 +89,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="product_list_tab">
                         @can('product.create')
-                            <a class="btn btn-primary pull-left" href="{{action('ProductController@create')}}">
+                            <a class="btn btn-primary pull-left btnProductAdd" href="{{action('ProductController@create')}}">
                                         <i class="fa fa-plus"></i> @lang('messages.add')</a>
                             <br><br>
                         @endcan
@@ -133,8 +133,8 @@
             product_table = $('#product_table').DataTable({
                 processing: true,
                 serverSide: true,
-                aaSorting: [[3, 'asc']],
                 dom:"<'tablebase' lfi<t>p>",
+                aaSorting: [[3, 'asc']],
                 "ajax": {
                     "url": "/products",
                     "data": function ( d ) {
@@ -420,6 +420,7 @@
                     stock_report_table = $('#stock_report_table').DataTable({
                         processing: true,
                         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                         dom:"<'tablebase' lfi<t>p>",
                         ajax: {
                             url: '/reports/stock-report',

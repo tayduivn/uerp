@@ -195,6 +195,7 @@
             product_table = $('#product_table').DataTable({
                 processing: true,
                 serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                 aaSorting: [[3, 'asc']],
                 "ajax": {
                     "url": "/products",
@@ -488,6 +489,7 @@
                     stock_report_table = $('#stock_report_table').DataTable({
                         processing: true,
                         serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                         ajax: {
                             url: '/reports/stock-report',
                             data: function(d) {

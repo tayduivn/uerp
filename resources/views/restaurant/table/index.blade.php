@@ -83,6 +83,7 @@
             var tables_table = $('#tables_table').DataTable({
                     processing: true,
                     serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                     ajax: '/modules/tables',
                     columnDefs: [ {
                         "targets": 3,

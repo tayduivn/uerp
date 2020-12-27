@@ -36,7 +36,7 @@
 .table-responsive .margin-bottom-20 {
    margin-bottom: 10px !important;
 }
-   
+
 #product_table_wrapper .margin-bottom-20 {
    margin-left: 65px;
 }
@@ -48,6 +48,7 @@
 div.dataTables_wrapper div.dataTables_filter {
    float: left;
     margin-right: 20px;
+   margin-bottom: 8px;
 }
 
 #product_table_wrapper.dataTables_wrapper div.dataTables_filter {
@@ -59,4 +60,9 @@ div.dataTables_wrapper div.dataTables_info {
    top: -4px;
    position: relative;
    margin-right: 11px;
+}
+
+.btnProductAdd {
+   position: relative;
+   z-index: 999999;
 }

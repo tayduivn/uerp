@@ -22,6 +22,7 @@
                 category_table = $('#category_table').DataTable({
                     processing: true,
                     serverSide: true,
+                dom:"<'tablebase' lfi<t>p>",
                     ajax: '/taxonomies?type=' + category_type,
                     columns: [
                         { data: 'name', name: 'name' },
