@@ -89,7 +89,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="product_list_tab">
                         @can('product.create')
-                            <a class="btn btn-primary pull-right" href="{{action('ProductController@create')}}">
+                            <a class="btn btn-primary pull-left" href="{{action('ProductController@create')}}">
                                         <i class="fa fa-plus"></i> @lang('messages.add')</a>
                             <br><br>
                         @endcan
@@ -134,12 +134,14 @@
                 processing: true,
                 serverSide: true,
                 aaSorting: [[3, 'asc']],
+                dom:"<'tablebase' lfi<t>p>",
                 "ajax": {
                     "url": "/products",
                     "data": function ( d ) {
                         d.type = $('#product_list_filter_type').val();
                         d.category_id = $('#product_list_filter_category_id').val();
                         d.reference_search = $('#product_list_filter_reference_search').val().replace(/[\r\n]/g, "##") ;
+                        d.reference_internal = $('#product_list_filter_reference_internal').val().replace(/[\r\n]/g, "##") ;
                         d.product_description = $('#product_list_filter_product_description').val();
                         d.contact_supplier_id = $('#product_list_filter_contact_supplier_id').val();
                         d.brand_id = $('#product_list_filter_brand_id').val();
@@ -418,12 +420,14 @@
                     stock_report_table = $('#stock_report_table').DataTable({
                         processing: true,
                         serverSide: true,
+                        dom:"<'tablebase' lfi<t>p>",
                         ajax: {
                             url: '/reports/stock-report',
                             data: function(d) {
                                 d.location_id = $('#location_id').val();
                                 d.category_id = $('#product_list_filter_category_id').val();
                                 d.reference_search = $('#product_list_filter_reference_search').val().replace(/[\r\n]/g, "##") ;
+                                d.reference_internal = $('#product_list_filter_reference_internal').val().replace(/[\r\n]/g, "##") ;
                                 d.product_description = $('#product_list_filter_product_description').val();
                                 d.contact_supplier_id = $('#product_list_filter_contact_supplier_id').val();
                                 d.brand_id = $('#product_list_filter_brand_id').val();

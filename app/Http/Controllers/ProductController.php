@@ -155,6 +155,25 @@ class ProductController extends Controller
                //
             }
 
+            $reference_internal = request()->get('reference_internal', null);
+            if (!empty($reference_internal)) {
+                $reference_internal = trim($reference_internal);
+                $reference_internalArr = explode("##", $reference_internal);
+
+                $whereReference = '';
+
+                foreach ($reference_internalArr as $reference_internalOne) {
+                    if($reference_internalOne != '')
+                    {
+                        if($whereReference != '') $whereReference .= ' OR ';
+                        $whereReference .= " products.reference_internal like '%$reference_internalOne%' ";
+                    }
+
+                }
+
+                if($whereReference != '')  $products->whereRaw("( $whereReference )");
+                //
+            }
 
             $product_description = request()->get('product_description', null);
             if (!empty($product_description)) {
