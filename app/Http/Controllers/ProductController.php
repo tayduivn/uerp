@@ -6,6 +6,8 @@ use App\Brands;
 use App\Business;
 use App\BusinessLocation;
 use App\Category;
+use App\Contacts;
+use App\Contact;
 use App\Media;
 use App\Product;
 use App\ProductVariation;
@@ -131,6 +133,37 @@ class ProductController extends Controller
             $category_id = request()->get('category_id', null);
             if (!empty($category_id)) {
                 $products->where('products.category_id', $category_id);
+            }
+
+            $reference_search = request()->get('reference_search', null);
+            if (!empty($reference_search)) {
+                $reference_search = trim($reference_search);
+                $reference_searchArr = explode("##", $reference_search);
+
+                $whereReference = '';
+
+                foreach ($reference_searchArr as $reference_searchOne) {
+                    if($reference_searchOne != '')
+                    {
+                        if($whereReference != '') $whereReference .= ' OR ';
+                        $whereReference .= " products.reference_search like '%$reference_searchOne%' ";
+                    }
+
+                }
+
+                if($whereReference != '')  $products->whereRaw("( $whereReference )");
+               //
+            }
+
+
+            $product_description = request()->get('product_description', null);
+            if (!empty($product_description)) {
+                $products->where('products.product_description', 'like', "%{$product_description}%");
+            }
+
+            $contact_supplier_id = request()->get('contact_supplier_id', null);
+            if (!empty($contact_supplier_id)) {
+                $products->where('products.contact_supplier_id', $contact_supplier_id);
             }
 
             $brand_id = request()->get('brand_id', null);
@@ -274,6 +307,8 @@ class ProductController extends Controller
 
         $brands = Brands::forDropdown($business_id);
 
+        $suppliers = Contact::suppliersDropdown($business_id);
+
         $units = Unit::forDropdown($business_id);
 
         $tax_dropdown = TaxRate::forBusinessDropdown($business_id, false);
@@ -298,6 +333,7 @@ class ProductController extends Controller
                 'rack_enabled',
                 'categories',
                 'brands',
+                'suppliers',
                 'units',
                 'taxes',
                 'business_locations',

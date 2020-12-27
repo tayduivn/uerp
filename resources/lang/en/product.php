@@ -57,5 +57,10 @@ return [
     'variations' => 'Variations',
     'import_products' => 'Import Products',
     'file_to_import' => 'File To Import',
-    'file_imported_successfully' => 'File imported successfully'
+    'reference_search' => 'File imported successfully',
+    'file_imported_successfully' => 'File imported successfully',
+    'reference_search' => 'Part # (ref search)',
+    'reference_internal_search' => 'Inside Part # (ref internal)',
+    'product_description_search' => 'Description',
+    'supplier_search' => 'Supplier',
  ];

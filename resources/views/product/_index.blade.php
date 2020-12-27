@@ -3,6 +3,16 @@
 
 @section('content')
 
+<!-- Content Header (Page header) -->
+<!-- <section class="content-header">
+    <h1>@lang('sale.products')
+        <small>@lang('lang_v1.manage_products')</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+</section>-->
 
 <!-- Main content -->
 <section class="content">
@@ -12,26 +22,26 @@
 
             <div class="col-md-25">
                 <div class="form-group">
-                    {!! Form::label('type', __('product.reference_search') ) !!}
-                    {!! Form::textarea('reference_search', null, [ 'id'=> 'product_list_filter_reference_search','class' => 'form-control', 'rows' => 3, 'cols' => 40]); !!}
+                    {!! Form::label('type', __('product.reference_search') ) !!} 
+                    {!! Form::textarea('username', null, ['class' => 'form-control', 'rows' => 3, 'cols' => 40]); !!}
                 </div>
             </div>
             <div class="col-md-25">
                 <div class="form-group">
                     {!! Form::label('type', __('product.reference_internal_search') ) !!}
-                    {!! Form::textarea('reference_internal', null, [ 'id'=> 'product_list_filter_reference_internal','class' => 'form-control', 'rows' => 3, 'cols' => 40]); !!}
+                    {!!  Form::textarea('username', null, ['class' => 'form-control', 'rows' => 3, 'cols' => 40]); !!}
                 </div>
             </div>
             <div class="col-md-25">
                 <div class="form-group">
-                    {!! Form::label('type', __('product.product_description_search') ) !!}
-                    {!! Form::text('product_description', null, [ 'id'=> 'product_list_filter_product_description', 'class' => 'form-control']); !!}
+                    {!! Form::label('type', __('product.description_search') ) !!}
+                    {!!  Form::textarea('username', null, ['class' => 'form-control', 'rows' => 3, 'cols' => 40]); !!}
                 </div>
             </div>
             <div class="col-md-25">
                 <div class="form-group">
                     {!! Form::label('type', __('product.supplier_search') ) !!}
-                    {!! Form::select('contact_supplier_id', $suppliers, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_contact_supplier_id', 'placeholder' => __('lang_v1.all')]); !!}
+                    {!! Form::select('supplier_id', $suppliers, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_supplier_id', 'placeholder' => __('lang_v1.all')]); !!}
                 </div>
             </div>
             <div class="col-md-25">
@@ -48,6 +58,49 @@
                     </div>
                 </div>
             </div>
+       {{-- <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('type', __('product.product_type') ) !!}
+                {!! Form::select('type', ['single' => __('lang_v1.single'), 'variable' => __('lang_v1.variable')], null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_type', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('category_id', __('product.category') ) !!}
+                {!! Form::select('category_id', $categories, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_category_id', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('unit_id', __('product.unit') ) !!}
+                {!! Form::select('unit_id', $units, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_unit_id', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('tax_id', __('product.tax') ) !!}
+                {!! Form::select('tax_id', $taxes, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_tax_id', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('brand_id', __('product.brand') ) !!}
+                {!! Form::select('brand_id', $brands, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'product_list_filter_brand_id', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>
+        <div class="col-md-3" id="location_filter">
+            <div class="form-group">
+                {!! Form::label('location_id',  __('purchase.business_location') ) !!}
+                {!! Form::select('location_id', $business_locations, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <br>
+            <div class="form-group">
+                {!! Form::select('active_state', ['active' => __('business.is_active'), 'inactive' => __('lang_v1.inactive')], null, ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'active_state', 'placeholder' => __('lang_v1.all')]); !!}
+            </div>
+        </div>--}}
 
         <!-- include module filter -->
         @if(!empty($pos_module_data))
@@ -57,6 +110,15 @@
                 @endif
             @endforeach
         @endif
+
+        {{--<div class="col-md-3">
+          <div class="form-group">
+            <br>
+            <label>
+              {!! Form::checkbox('not_for_selling', 1, false, ['class' => 'input-icheck', 'id' => 'not_for_selling']); !!} <strong>@lang('lang_v1.not_for_selling')</strong>
+            </label>
+          </div>
+        </div>--}}
         @if($is_woocommerce)
             <div class="col-md-3">
                 <div class="form-group">
@@ -139,9 +201,6 @@
                     "data": function ( d ) {
                         d.type = $('#product_list_filter_type').val();
                         d.category_id = $('#product_list_filter_category_id').val();
-                        d.reference_search = $('#product_list_filter_reference_search').val().replace(/[\r\n]/g, "##") ;
-                        d.product_description = $('#product_list_filter_product_description').val();
-                        d.contact_supplier_id = $('#product_list_filter_contact_supplier_id').val();
                         d.brand_id = $('#product_list_filter_brand_id').val();
                         d.unit_id = $('#product_list_filter_unit_id').val();
                         d.tax_id = $('#product_list_filter_tax_id').val();
@@ -353,6 +412,17 @@
                 });
             });
 
+            /*$(document).on('change', '#product_list_filter_type, #product_list_filter_category_id, #product_list_filter_brand_id, #product_list_filter_unit_id, #product_list_filter_tax_id, #location_id, #active_state, #repair_model_id',
+                function() {
+                    if ($("#product_list_tab").hasClass('active')) {
+                        product_table.ajax.reload();
+                    }
+
+                    if ($("#product_stock_report").hasClass('active')) {
+                        stock_report_table.ajax.reload();
+                    }
+            });*/
+
             $(document).on('click', '#submit_search_button',
                 function() {
                     if ($("#product_list_tab").hasClass('active')) {
@@ -423,9 +493,6 @@
                             data: function(d) {
                                 d.location_id = $('#location_id').val();
                                 d.category_id = $('#product_list_filter_category_id').val();
-                                d.reference_search = $('#product_list_filter_reference_search').val().replace(/[\r\n]/g, "##") ;
-                                d.product_description = $('#product_list_filter_product_description').val();
-                                d.contact_supplier_id = $('#product_list_filter_contact_supplier_id').val();
                                 d.brand_id = $('#product_list_filter_brand_id').val();
                                 d.unit_id = $('#product_list_filter_unit_id').val();
                                 d.type = $('#product_list_filter_type').val();
