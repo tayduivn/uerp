@@ -69,3 +69,16 @@ div.dataTables_wrapper div.dataTables_info {
 .box, .info-box {
    margin-bottom: 10px;
 }
+
+.btn-success {
+   background: #438ce8;
+   border-color: #438ce8;
+}
+
+.skin-blue-light .main-header .navbar {
+   background: #42556d;
+}
+
+.skin-blue .main-header .logo, .skin-blue-light .main-header .logo {
+   background: #42556d;
+}
