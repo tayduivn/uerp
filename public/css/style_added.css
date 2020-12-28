@@ -66,3 +66,6 @@ div.dataTables_wrapper div.dataTables_info {
    position: relative;
    z-index: 999999;
 }
+.box, .info-box {
+   margin-bottom: 10px;
+}

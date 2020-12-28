@@ -23,9 +23,9 @@
 <script src="{{ asset('js/vendor.js?v=' . $asset_v) }}"></script>
 
 @if(file_exists(public_path('js/lang/' . session()->get('user.language', config('app.locale')) . '.js')))
-    <script src="{{ asset('js/lang/' . session()->get('user.language', config('app.locale') ) . '.js?v=' . $asset_v) }}"></script>
+    <script src="{{ asset('js/lang/' . session()->get('user.language', config('app.locale') ) . '.js?v=' . rand(0,5000)) }}"></script>
 @else
-    <script src="{{ asset('js/lang/en.js?v=' . $asset_v) }}"></script>
+    <script src="{{ asset('js/lang/en.js?v=' . rand(0,5000)) }}"></script>
 @endif
 @php
     $business_date_format = session('business.date_format', config('constants.default_date_format'));
@@ -89,14 +89,14 @@
 </script>
 
 @if(file_exists(public_path('js/lang/' . session()->get('user.language', config('app.locale')) . '.js')))
-    <script src="{{ asset('js/lang/' . session()->get('user.language', config('app.locale') ) . '.js?v=' . $asset_v) }}"></script>
+    <script src="{{ asset('js/lang/' . session()->get('user.language', config('app.locale') ) . '.js?v=' . rand(0,5000)) }}"></script>
 @else
-    <script src="{{ asset('js/lang/en.js?v=' . $asset_v) }}"></script>
+    <script src="{{ asset('js/lang/en.js?v=' . rand(0,5000)) }}"></script>
 @endif
 
 <script src="{{ asset('js/functions.js?v=' . $asset_v) }}"></script>
-<script src="{{ asset('js/common.js?v=' . rand(0,500)) }}"></script>
-<script src="{{ asset('js/app.js?v=' . $asset_v) }}"></script>
+<script src="{{ asset('js/common.js?v=' . rand(0,5000)) }}"></script>
+<script src="{{ asset('js/app.js?v=' . rand(0,5000)) }}"></script>
 <script src="{{ asset('js/help-tour.js?v=' . $asset_v) }}"></script>
 <script src="{{ asset('js/documents_and_note.js?v=' . $asset_v) }}"></script>
 

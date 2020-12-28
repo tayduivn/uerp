@@ -71,6 +71,7 @@ class ProductController extends Controller
                 ->join('units', 'products.unit_id', '=', 'units.id')
                 ->leftJoin('categories as c1', 'products.category_id', '=', 'c1.id')
                 ->leftJoin('categories as c2', 'products.sub_category_id', '=', 'c2.id')
+                ->leftJoin('contacts as cs', 'products.contact_supplier_id', '=', 'cs.id')
                 ->leftJoin('tax_rates', 'products.tax', '=', 'tax_rates.id')
                 ->join('variations as v', 'v.product_id', '=', 'products.id')
                 ->leftJoin('variation_location_details as vld', 'vld.variation_id', '=', 'v.id')
@@ -105,6 +106,7 @@ class ProductController extends Controller
                 'products.type',
                 'c1.name as category',
                 'c2.name as sub_category',
+                'cs.name as supplier',
                 'units.actual_name as unit',
                 'brands.name as brand',
                 'tax_rates.name as tax',
@@ -117,11 +119,19 @@ class ProductController extends Controller
                 'products.product_custom_field2',
                 'products.product_custom_field3',
                 'products.product_custom_field4',
+                'products.reference_search',
+                'products.website_price',
+                'products.reference_internal',
+                'products.date_manufacture',
+                'products.product_description',
+
                 DB::raw('SUM(vld.qty_available) as current_stock'),
+                DB::raw('SUM(vld.qty_available) as current_stock_aff'),
                 DB::raw('MAX(v.sell_price_inc_tax) as max_price'),
                 DB::raw('MIN(v.sell_price_inc_tax) as min_price'),
                 DB::raw('MAX(v.dpp_inc_tax) as max_purchase_price'),
-                DB::raw('MIN(v.dpp_inc_tax) as min_purchase_price')
+                DB::raw('MIN(v.dpp_inc_tax) as min_purchase_price'),
+                DB::raw('MIN(v.dpp_inc_tax) as sale_price')
 
                 )->groupBy('products.id');
 
@@ -146,7 +156,7 @@ class ProductController extends Controller
                     if($reference_searchOne != '')
                     {
                         if($whereReference != '') $whereReference .= ' OR ';
-                        $whereReference .= " products.reference_search like '%$reference_searchOne%' ";
+                        $whereReference .= " products.reference_search like '%$reference_searchOne%' OR products.reference like '%$reference_searchOne%' ";
                     }
 
                 }
@@ -278,7 +288,7 @@ class ProductController extends Controller
                         return $html;
                     }
                 )
-                ->editColumn('product', function ($row) {
+                 ->editColumn('product', function ($row) {
                     $product = $row->is_inactive == 1 ? $row->product . ' <span class="label bg-gray">' . __("lang_v1.inactive") .'</span>' : $row->product;
 
                     $product = $row->not_for_selling == 1 ? $product . ' <span class="label bg-gray">' . __("lang_v1.not_for_selling") .
@@ -294,9 +304,18 @@ class ProductController extends Controller
                     return  '<input type="checkbox" class="row-select" value="' . $row->id .'">' ;
                 })
                 ->editColumn('current_stock', '@if($enable_stock == 1) {{@number_format($current_stock)}} @else -- @endif {{$unit}}')
+                ->editColumn('current_stock_aff', '{{@number_format($current_stock_aff)}} ')
+                ->addColumn(
+                    'cost',
+                    '<div style="white-space: nowrap;"><span class="display_currency" data-currency_symbol="true">{{$min_purchase_price}}</span> @if($max_purchase_price != $min_purchase_price && $type == "variable") -  <span class="display_currency" data-currency_symbol="true">{{$max_purchase_price}}</span>@endif </div>'
+                )
                 ->addColumn(
                     'purchase_price',
                     '<div style="white-space: nowrap;"><span class="display_currency" data-currency_symbol="true">{{$min_purchase_price}}</span> @if($max_purchase_price != $min_purchase_price && $type == "variable") -  <span class="display_currency" data-currency_symbol="true">{{$max_purchase_price}}</span>@endif </div>'
+                )
+                ->addColumn(
+                    'sale_price',
+                    '<div style="white-space: nowrap;"><span class="display_currency" data-currency_symbol="true">{{$min_price}}</span> @if($max_price != $min_price && $type == "variable") -  <span class="display_currency" data-currency_symbol="true">{{$max_price}}</span>@endif </div>'
                 )
                 ->addColumn(
                     'selling_price',
@@ -316,7 +335,7 @@ class ProductController extends Controller
                             return '';
                         }
                     }])
-                ->rawColumns(['action', 'image', 'mass_delete', 'product', 'selling_price', 'purchase_price', 'category'])
+                ->rawColumns(['action', 'image', 'cost', 'mass_delete', 'product', 'sale_price', 'selling_price', 'purchase_price', 'category'])
                 ->make(true);
         }
 

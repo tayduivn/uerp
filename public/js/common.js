@@ -191,6 +191,10 @@ $(document).ready(function() {
         //dom:
         //    '<"row margin-bottom-20 text-center"<"col-sm-2"l><"col-sm-7"B><"col-sm-3"f> r>tip',
         dom:"<'tablebase' lfi<t>p>",
+        scrollResize: true,
+        scrollX: true,
+        scrollY: '50vh',
+        scrollCollapse: true,
         buttons: buttons,
         aLengthMenu: [[25, 50, 100, 200, 500, 1000, -1], [25, 50, 100, 200, 500, 1000, LANG.all]],
         iDisplayLength: __default_datatable_page_entries,

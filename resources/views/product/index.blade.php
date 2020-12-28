@@ -134,6 +134,7 @@
                 processing: true,
                 serverSide: true,
                 dom:"<'tablebase' lfi<t>p>",
+                scrollY: '40vh',
                 aaSorting: [[3, 'asc']],
                 "ajax": {
                     "url": "/products",
@@ -171,7 +172,16 @@
                         { data: 'image', name: 'products.image'  },
                         { data: 'action', name: 'action'},
                         { data: 'product', name: 'products.name'  },
-                        { data: 'product_locations', name: 'product_locations'  },
+                        { data: 'current_stock_aff', searchable: false  },
+                        { data: 'cost', name: 'max_purchase_price', searchable: false  },
+                        { data: 'supplier', name: 'cs.name' },
+                        { data: 'sale_price', name: 'products.sale_price' },
+                        { data: 'website_price', name: 'products.website_price' },
+                        { data: 'reference_internal', name: 'products.reference_internal' },
+                        { data: 'brand', name: 'brands.name' },
+                        { data: 'date_manufacture', name: 'products.date_manufacture' },
+                        { data: 'product_description', name: 'products.product_description' },
+                    { data: 'product_locations', name: 'product_locations'  },
                         @can('view_purchase_price')
                             { data: 'purchase_price', name: 'max_purchase_price', searchable: false},
                         @endcan
@@ -184,10 +194,7 @@
                         { data: 'brand', name: 'brands.name'},
                         { data: 'tax', name: 'tax_rates.name', searchable: false},
                         { data: 'sku', name: 'products.sku'},
-                        { data: 'product_custom_field1', name: 'products.product_custom_field1'  },
-                        { data: 'product_custom_field2', name: 'products.product_custom_field2'  },
-                        { data: 'product_custom_field3', name: 'products.product_custom_field3'  },
-                        { data: 'product_custom_field4', name: 'products.product_custom_field4'  }
+                        { data: 'reference_search', name: 'products.reference_search'}
                         
                     ],
                     createdRow: function( row, data, dataIndex ) {
@@ -420,7 +427,7 @@
                     stock_report_table = $('#stock_report_table').DataTable({
                         processing: true,
                         serverSide: true,
-                dom:"<'tablebase' lfi<t>p>",
+                        scrollY: '40vh',
                         dom:"<'tablebase' lfi<t>p>",
                         ajax: {
                             url: '/reports/stock-report',

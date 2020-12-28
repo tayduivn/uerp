@@ -1,5 +1,5 @@
 @php 
-    $colspan = 15;
+    $colspan = 19;
     $custom_labels = json_decode(session('business.custom_labels'), true);
 @endphp
 <div class="table-responsive">
@@ -9,10 +9,19 @@
                 <th><input type="checkbox" id="select-all-row"></th>
                 <th>&nbsp;</th>
                 <th>@lang('messages.action')</th>
-                <th>@lang('sale.product')</th>
+                <th>@lang('product.reference_table')</th>
+                <th>@lang('product.quantity_table')</th>
+                <th>@lang('product.cost_table')</th>
+                <th>@lang('product.supplier_table')</th>
+                <th>@lang('product.sale_price_table')</th>
+                <th>@lang('product.website_price_table')</th>
+                <th>@lang('product.reference_internal_table')</th>
+                <th>@lang('product.brand_table')</th>
+                <th>@lang('product.date_manufacture_table')</th>
+                <th>@lang('product.product_description_table')</th>
                 <th>@lang('purchase.business_location') @show_tooltip(__('lang_v1.product_business_location_tooltip'))</th>
                 @can('view_purchase_price')
-                    @php 
+                    @php
                         $colspan++;
                     @endphp
                     <th>@lang('lang_v1.unit_perchase_price')</th>
@@ -29,10 +38,8 @@
                 <th>@lang('product.brand')</th>
                 <th>@lang('product.tax')</th>
                 <th>@lang('product.sku')</th>
-                <th>{{ $custom_labels['product']['custom_field_1'] ?? __('lang_v1.product_custom_field1') }}</th>
-                <th>{{ $custom_labels['product']['custom_field_2'] ?? __('lang_v1.product_custom_field2') }}</th>
-                <th>{{ $custom_labels['product']['custom_field_3'] ?? __('lang_v1.product_custom_field3') }}</th>
-                <th>{{ $custom_labels['product']['custom_field_4'] ?? __('lang_v1.product_custom_field4') }}</th>
+                <th>@lang('product.reference_search_table')</th>
+
             </tr>
         </thead>
         <tfoot>

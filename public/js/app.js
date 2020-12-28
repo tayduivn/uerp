@@ -2181,12 +2181,15 @@ $(document).on('change', 'input.row-select', function() {
 });
 
 $(document).on('click', '#select-all-row', function(e) {
+
     if (this.checked) {
+
         $(this)
-            .closest('table')
-            .find('tbody')
+            .closest('body')
+            .find('.dataTables_scrollBody tbody')
             .find('input.row-select')
             .each(function() {
+
                 if (!this.checked) {
                     $(this)
                         .prop('checked', true)
@@ -2195,8 +2198,8 @@ $(document).on('click', '#select-all-row', function(e) {
             });
     } else {
         $(this)
-            .closest('table')
-            .find('tbody')
+            .closest('body')
+            .find('.dataTables_scrollBody tbody')
             .find('input.row-select')
             .each(function() {
                 if (this.checked) {
