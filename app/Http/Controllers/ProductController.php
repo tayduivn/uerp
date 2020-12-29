@@ -107,6 +107,7 @@ class ProductController extends Controller
                 'c1.name as category',
                 'c2.name as sub_category',
                 'cs.name as supplier',
+                'cs.id as supplier_id',
                 'units.actual_name as unit',
                 'brands.name as brand',
                 'tax_rates.name as tax',
@@ -124,7 +125,6 @@ class ProductController extends Controller
                 'products.reference_internal',
                 'products.date_manufacture',
                 'products.product_description',
-
                 DB::raw('SUM(vld.qty_available) as current_stock'),
                 DB::raw('SUM(vld.qty_available) as current_stock_aff'),
                 DB::raw('MAX(v.sell_price_inc_tax) as max_price'),
@@ -288,13 +288,23 @@ class ProductController extends Controller
                         return $html;
                     }
                 )
+
+                // add jz
                  ->editColumn('product', function ($row) {
+                     $product =' <span  data-href="' . action('ProductController@view', [$row->id]) . '"> ' .$row->product . '</span>';
+                     /*
                     $product = $row->is_inactive == 1 ? $row->product . ' <span class="label bg-gray">' . __("lang_v1.inactive") .'</span>' : $row->product;
 
                     $product = $row->not_for_selling == 1 ? $product . ' <span class="label bg-gray">' . __("lang_v1.not_for_selling") .
-                        '</span>' : $product;
+                        '</span>' : $product;*/
                     
                     return $product;
+                })
+                // add jz
+                ->editColumn('supplier', function ($row) {
+                    $supplier =' <a target="_blank" class="no-print"  href="' . action('ContactController@show', [$row->supplier_id]) . '"> ' .$row->supplier . '</a>';
+
+                    return $supplier;
                 })
                 ->editColumn('image', function ($row) {
                     return '<div style="display: flex;"><img src="' . $row->image_url . '" alt="Product image" class="product-thumbnail-small"></div>';
@@ -335,7 +345,7 @@ class ProductController extends Controller
                             return '';
                         }
                     }])
-                ->rawColumns(['action', 'image', 'cost', 'mass_delete', 'product', 'sale_price', 'selling_price', 'purchase_price', 'category'])
+                ->rawColumns(['action', 'image', 'cost', 'mass_delete', 'product','supplier', 'sale_price', 'selling_price', 'purchase_price', 'category'])
                 ->make(true);
         }
 

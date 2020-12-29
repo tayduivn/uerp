@@ -69,7 +69,7 @@
           </button>
         @endif
 
-        <div class="m-8 pull-left mt-15 hidden-xs" style="color: #fff;"><strong>{{ @format_date('now') }}</strong></div>
+        <div class="m-8 pull-left mt-15 hidden-xs dateHeader" style="color: #fff;"><strong>{{ @format_date('now') }}</strong></div>
 
         <ul class="nav navbar-nav">
           @include('layouts.partials.header-notifications')

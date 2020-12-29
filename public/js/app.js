@@ -2101,6 +2101,7 @@ function show_product_type_form() {
 }
 
 $(document).on('click', 'table.ajax_view tbody tr', function(e) {
+    alert('ajax view');
     if (
         !$(e.target).is('td.selectable_td input[type=checkbox]') &&
         !$(e.target).is('td.selectable_td') &&
@@ -2123,6 +2124,7 @@ $(document).on('click', 'table.ajax_view tbody tr', function(e) {
         });
     }
 });
+
 $(document).on('click', 'td.clickable_td', function(e) {
     e.preventDefault();
     e.stopPropagation();

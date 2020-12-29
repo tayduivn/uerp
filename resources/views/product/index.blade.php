@@ -126,7 +126,7 @@
 @endsection
 
 @section('javascript')
-    <script src="{{ asset('js/product.js?v=' . $asset_v) }}"></script>
+    <script src="{{ asset('js/product.js?v=' . rand(0,5000)) }}"></script>
     <script src="{{ asset('js/opening_stock.js?v=' . $asset_v) }}"></script>
     <script type="text/javascript">
         $(document).ready( function(){
@@ -180,13 +180,13 @@
                         { data: 'brand', name: 'brands.name' },
                         { data: 'date_manufacture', name: 'products.date_manufacture' },
                         { data: 'product_description', name: 'products.product_description' },
-                    { data: 'product_locations', name: 'product_locations'  },
-                        @can('view_purchase_price')
-                            { data: 'purchase_price', name: 'max_purchase_price', searchable: false},
-                        @endcan
-                        @can('access_default_selling_price')
-                            { data: 'selling_price', name: 'max_price', searchable: false},
-                        @endcan
+                        {{--{ data: 'product_locations', name: 'product_locations'  },--}}
+                        {{--@can('view_purchase_price')--}}
+                            {{--{ data: 'purchase_price', name: 'max_purchase_price', searchable: false},--}}
+                        {{--@endcan--}}
+                        {{--@can('access_default_selling_price')--}}
+                            {{--{ data: 'selling_price', name: 'max_price', searchable: false},--}}
+                        {{--@endcan--}}
                         { data: 'current_stock', searchable: false},
                         { data: 'type', name: 'products.type'},
                         { data: 'category', name: 'c1.name'},
@@ -205,6 +205,8 @@
                             $( row ).find('td:eq('+target_col+') div').prepend('<i style="margin:auto;" class="fa fa-plus-circle text-success cursor-pointer no-print rack-details" title="' + LANG.details + '"></i>&nbsp;&nbsp;');
                         }
                         $( row ).find('td:eq(0)').attr('class', 'selectable_td');
+                        $( row ).find('td:eq(3)').attr('class', 'reference_table');
+                        $( row ).find('td:eq(6)').attr('class', 'supplier_table');
                     },
                     fnDrawCallback: function(oSettings) {
                         __currency_convert_recursively($('#product_table'));
@@ -331,6 +333,7 @@
             })
 
             $(document).on('click', '#edit-selected', function(e){
+
                 e.preventDefault();
                 var selected_rows = getSelectedRows();
                 
@@ -344,7 +347,8 @@
             })
 
             $('table#product_table tbody').on('click', 'a.activate-product', function(e){
-                e.preventDefault();
+
+               e.preventDefault();
                 var href = $(this).attr('href');
                 $.ajax({
                     method: "get",
@@ -387,6 +391,7 @@
 
         $(document).on('shown.bs.modal', 'div.view_product_modal, div.view_modal', 
             function(){
+
                 var div = $(this).find('#view_product_stock_details');
             if (div.length) {
                 $.ajax({
@@ -490,8 +495,8 @@
         $(document).on('click', '.update_product_location', function(e){
             e.preventDefault();
             var selected_rows = getSelectedRows();
-            
-            if(selected_rows.length > 0){
+
+             if(selected_rows.length > 0){
                 $('input#selected_products').val(selected_rows);
                 var type = $(this).data('type');
                 var modal = $('#edit_product_location_modal');

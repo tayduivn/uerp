@@ -1,9 +1,9 @@
 @php 
-    $colspan = 19;
+    $colspan = 16;
     $custom_labels = json_decode(session('business.custom_labels'), true);
 @endphp
 <div class="table-responsive">
-    <table class="table table-bordered table-striped ajax_view hide-footer" id="product_table">
+    <table class="table table-bordered table-striped ajax_view_product hide-footer" id="product_table">
         <thead>
             <tr>
                 <th><input type="checkbox" id="select-all-row"></th>
@@ -19,19 +19,19 @@
                 <th>@lang('product.brand_table')</th>
                 <th>@lang('product.date_manufacture_table')</th>
                 <th>@lang('product.product_description_table')</th>
-                <th>@lang('purchase.business_location') @show_tooltip(__('lang_v1.product_business_location_tooltip'))</th>
-                @can('view_purchase_price')
-                    @php
-                        $colspan++;
-                    @endphp
-                    <th>@lang('lang_v1.unit_perchase_price')</th>
-                @endcan
-                @can('access_default_selling_price')
-                    @php 
-                        $colspan++;
-                    @endphp
-                    <th>@lang('lang_v1.selling_price')</th>
-                @endcan
+                {{--<th>@lang('purchase.business_location') @show_tooltip(__('lang_v1.product_business_location_tooltip'))</th>--}}
+                {{--@can('view_purchase_price')--}}
+                    {{--@php--}}
+                        {{--$colspan++;--}}
+                    {{--@endphp--}}
+                    {{--<th>@lang('lang_v1.unit_perchase_price')</th>--}}
+                {{--@endcan--}}
+                {{--@can('access_default_selling_price')--}}
+                    {{--@php --}}
+                        {{--$colspan++;--}}
+                    {{--@endphp--}}
+                    {{--<th>@lang('lang_v1.selling_price')</th>--}}
+                {{--@endcan--}}
                 <th>@lang('report.current_stock')</th>
                 <th>@lang('product.product_type')</th>
                 <th>@lang('product.category')</th>

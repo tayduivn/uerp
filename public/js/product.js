@@ -439,11 +439,13 @@ $(document).ready(function() {
     });
 
     $(document).on('click', 'a.view-product', function(e) {
+        alert('view-product');
         e.preventDefault();
         $.ajax({
             url: $(this).attr('href'),
             dataType: 'html',
             success: function(result) {
+                alert('view-productdddd');
                 $('#view_product_modal')
                     .html(result)
                     .modal('show');
@@ -524,6 +526,48 @@ function get_product_details(rowData) {
 
     return div;
 }
+
+$(document).on('click', 'table.ajax_view_product tbody tr .reference_table span', function(e) {
+
+    $.ajax({
+        url: $(this).data('href'),
+        dataType: 'html',
+        success: function(result) {
+            $('.view_modal')
+                .html(result)
+                .modal('show');
+        },
+    });
+
+});
+
+$(document).on('click', 'table.ajax_view_product tbody tr .supplier_table span', function(e) {
+
+    $.ajax({
+        url: $(this).data('href'),
+        dataType: 'html',
+        success: function(result) {
+            $('.view_modal')
+                .html(result)
+                .modal('show');
+        },
+    });
+
+});
+
+$(document).on('click', 'table.ajax_view_product tbody tr .supplier_table span', function(e) {
+
+    $.ajax({
+        url: $(this).data('href'),
+        dataType: 'html',
+        success: function(result) {
+            $('.view_modal')
+                .html(result)
+                .modal('show');
+        },
+    });
+
+});
 
 //Quick add unit
 $(document).on('submit', 'form#quick_add_unit_form', function(e) {
