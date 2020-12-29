@@ -96,3 +96,7 @@ div.dataTables_wrapper div.dataTables_info {
    cursor: pointer;
    text-decoration: underline;
 }
+
+#product_table .text-green, #product_table .text-success {
+   display: none;
+}
