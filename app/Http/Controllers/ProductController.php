@@ -291,7 +291,7 @@ class ProductController extends Controller
 
                 // add jz
                  ->editColumn('product', function ($row) {
-                     $product =' <span  data-href="' . action('ProductController@view', [$row->id]) . '"> ' .$row->product . '</span>';
+                     $product ='<span  data-href="' . action('ProductController@view', [$row->id]) . '"> ' .$row->product . '</span>';
                      /*
                     $product = $row->is_inactive == 1 ? $row->product . ' <span class="label bg-gray">' . __("lang_v1.inactive") .'</span>' : $row->product;
 
@@ -302,9 +302,14 @@ class ProductController extends Controller
                 })
                 // add jz
                 ->editColumn('supplier', function ($row) {
-                    $supplier =' <a target="_blank" class="no-print"  href="' . action('ContactController@show', [$row->supplier_id]) . '"> ' .$row->supplier . '</a>';
+                    $supplier ='<a target="_blank" class="no-print"  href="' . action('ContactController@show', [$row->supplier_id]) . '">' .$row->supplier . '</a>';
 
                     return $supplier;
+                })
+                ->editColumn('product_description', function ($row) {
+                    $product_description = $row->product_description ;
+
+                    return $product_description;
                 })
                 ->editColumn('image', function ($row) {
                     return '<div style="display: flex;"><img src="' . $row->image_url . '" alt="Product image" class="product-thumbnail-small"></div>';
@@ -345,7 +350,7 @@ class ProductController extends Controller
                             return '';
                         }
                     }])
-                ->rawColumns(['action', 'image', 'cost', 'mass_delete', 'product','supplier', 'sale_price', 'selling_price', 'purchase_price', 'category'])
+                ->rawColumns(['action', 'image', 'cost', 'mass_delete', 'product', 'product_description','supplier', 'sale_price', 'selling_price', 'purchase_price', 'category'])
                 ->make(true);
         }
 
